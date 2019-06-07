@@ -4,10 +4,10 @@
  */
 class Persona extends CI_Model
 {
-  public $table = 'alumnos';
-  public $table_id = 'id_alumnos';
+  public $table = 'alumno';
+  public $table_id = 'id_alumno';
 
-  function __construct(argument)
+  function __construct()
   {
     // code...
   }
@@ -23,5 +23,26 @@ class Persona extends CI_Model
     $this->db->from($this->table);
     $query = $this->db->get();
     return $query->result();
+  }
+  /**
+MÉTODO INSERT
+  */
+  public function insert($data){
+    $this->db->insert($this->table, $data);
+    return $this->db->insert_id();//retornar id del registro insertado
+  }
+  /**
+  MÉTODO UPDATE
+  */
+  public function update($id, $data){
+    $this->db->where($this->table_id, $id);//cláusula where de CI indicando el parámetro
+    $this->db->update($this->table, $data);
+  }
+  /**
+  MÉTODO DELETE
+  */
+  public function delete($id){
+    $this->db->where($this->table_id, $id);//cláusula where de CI indicando el parámetro
+    $this->db->update($this->table);
   }
 }

@@ -29,6 +29,10 @@ class Welcome extends CI_Controller {
 	}
 	public function test()
 	{
+		$this->load->model('Persona');
+		$persona = $this->Persona->find(1);
+		var_dump($persona);
+
 		$this->load->view('test');
 	}
 }
