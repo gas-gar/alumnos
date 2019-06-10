@@ -10,6 +10,7 @@ class Personas extends CI_Controller
     parent::__construct();
     $this->load->helper('form');
     $this->load->model('Persona');
+    $this->load->library('form_validation');//reglas de validación
     $this->load->database();
   }
   //La primera función en ejecutarse
@@ -20,6 +21,10 @@ class Personas extends CI_Controller
 
   }
   public function guardar($persona_id = null){//si persona_id no tiene valor es igual a null
+    //reglas de validación
+    $this->form_validation->set_rules('nombre', 'Nombre', 'required');//campo obligatorio
+    $this->form_validation->set_rules('apellidos', 'Apellidos', 'required');//campo obligatorio
+    $this->form_validation->set_rules('dni', 'DNI', 'required');//campo obligatorio
     //datos para pasar a la vista
     $vdata["nombre"] = $vdata["apellidos"] = $vdata["dni"] = $vdata["telefono"]
     = $vdata["direccion"] = $vdata["cp"] = $vdata["localidad"] = $vdata["provincia"] = "";
@@ -59,12 +64,15 @@ class Personas extends CI_Controller
       $vdata["localidad"] = $this->input->post("localidad");
       $vdata["provincia"] = $this->input->post("provincia");
       //var_dump $vdata;
-      if (isset($persona_id)) {//si tenemos id
-        $this->Persona->update($persona_id, $data);//actualizar registro
-      }else
-        $this->Persona->insert($data);//insertar datos
+      if ($this->form_validation->run()) {//validar formulario
+        if (isset($persona_id)) {//si tenemos id
+          $this->Persona->update($persona_id, $data);//actualizar registro
+        }else
+          $this->Persona->insert($data);//insertar datos
 
+      }
     }
+
     $this->load->view('personas/guardar', $vdata);//presentar el form vacío
   }//fin función guardar
 

@@ -7,7 +7,8 @@
   </head>
   <body>
     <div class="container">
-      <?php echo form_open('') ?>
+      <?php echo validation_errors();//mostrar errores de validación ?>
+      <?php echo form_open('')//abrir formulario (librería CI) ?>
       <div class="form-group">
         <?php
         echo form_label('Nombre', 'nombre');
