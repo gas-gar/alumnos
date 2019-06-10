@@ -64,7 +64,7 @@ class Personas extends CI_Controller
       }else
         $this->Persona->insert($data);//insertar datos
 
-    }   
+    }
     $this->load->view('personas/guardar', $vdata);//presentar el form vacío
   }//fin función guardar
 

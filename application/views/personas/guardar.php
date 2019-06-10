@@ -13,7 +13,7 @@
         echo form_label('Nombre', 'nombre');
         $input = array(
           'name' => 'nombre',
-          'value' => '',
+          'value' => $nombre,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -24,7 +24,7 @@
         echo form_label('Apellidos', 'apellidos');
         $input = array(
           'name' => 'apellidos',
-          'value' => '',
+          'value' => $apellidos,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -35,7 +35,7 @@
         echo form_label('DNI', 'dni');
         $input = array(
           'name' => 'dni',
-          'value' => '',
+          'value' => $dni,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -46,7 +46,7 @@
         echo form_label('Teléfono', 'telefono');
         $input = array(
           'name' => 'telefono',
-          'value' => '',
+          'value' => $telefono,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -57,7 +57,7 @@
         echo form_label('Dirección', 'direccion');
         $input = array(
           'name' => 'direccion',
-          'value' => '',
+          'value' => $direccion,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -68,7 +68,7 @@
         echo form_label('Código Postal', 'cp');
         $input = array(
           'name' => 'cp',
-          'value' => '',
+          'value' => $cp,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -79,7 +79,7 @@
         echo form_label('Localidad', 'localidad');
         $input = array(
           'name' => 'localidad',
-          'value' => '',
+          'value' => $localidad,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
@@ -90,7 +90,7 @@
         echo form_label('Provincia', 'provincia');
         $input = array(
           'name' => 'provincia',
-          'value' => '',
+          'value' => $provincia,
           'class' => 'form-control input-lg'
         );
         echo form_input($input);
